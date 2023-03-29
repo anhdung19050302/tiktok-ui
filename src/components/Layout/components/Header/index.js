@@ -1,14 +1,28 @@
-//import classNames from 'classnames';
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
-const cx = classNames.bind(styles);
+import images from '~/assets/images';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
+const cx = classNames.bind(styles);
 function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                {/* Logo */}
-                {/* Search */}
+                <div className={cx('logo')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </div>
+                <div className={cx('search')}>
+                    <input placeholder="Search account and video" />
+                    <button className={cx('clear-btn')}>
+                        <FontAwesomeIcon icon={faCircleXmark} />
+                    </button>
+                    <FontAwesomeIcon icon={faSpinner} className={cx('loading')} />
+                    <button className={cx('search-btn')}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                </div>
+                <div className={cx('actions')}>{/* Action */}</div>
             </div>
         </header>
     );
