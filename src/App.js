@@ -19,7 +19,7 @@ function App() {
                         const Page = route.component;
                         return (
                             <Route
-                                kety={index}
+                                key={index}
                                 path={route.path}
                                 element={
                                     <Layout>
