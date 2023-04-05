@@ -94,9 +94,8 @@
 }
 
 // Actions
-
 .actions {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 }
 
@@ -107,13 +106,28 @@
     padding: 4px 8px;
     cursor: pointer;
 }
-
 .action-btn {
+    background-color: transparent;
+    margin-left: 16px;
+}
+.actions-icon {
+    display: flex;
     background: transparent;
     font-size: 2.4rem;
     color: #161823;
     padding: 4px 16px;
+    cursor: pointer;
+    .upload-btn {
+        border: 1px solid rgba(22, 24, 35, 0.12);
+        min-width: 110px;
+        height: 36px;
+        align-items: center;
+        &:hover {
+            background-color: rgba(22, 24, 35, 0.03);
+        }
+    }
 }
+
 .user-avatar {
     width: 32px;
     height: 32px;

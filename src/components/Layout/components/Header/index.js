@@ -14,7 +14,6 @@ import {
     faCircleQuestion,
     faKeyboard,
     faSignIn,
-    faCloudUpload,
     faUser,
     faGear,
     faCoins,
@@ -26,6 +25,8 @@ import AccountItem from '~/components/SearchAccountItem/AccountItem';
 
 import Button from '~/components/Button';
 import Menu from '~/components/Poper/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -83,7 +84,7 @@ function Header() {
         {
             title: 'Log out',
             icon: <FontAwesomeIcon icon={faSignOut} />,
-            to: '/log out',
+            to: '/logout',
             sparated: true,
         },
     ];
@@ -123,11 +124,25 @@ function Header() {
                 </TippyHeadless>
                 <div className={cx('actions')}>
                     {currentUser ? (
-                        <Tippy offset={[12, 8]} content="Upload video" delay={[0, 200]} placement="bottom">
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faCloudUpload} />
-                            </button>
-                        </Tippy>
+                        <div className={cx('actions-icon')}>
+                            <Button
+                                href="/upload"
+                                className={cx('upload-btn')}
+                                leftIcon={<UploadIcon width="2rem" height="2rem" />}
+                            >
+                                <span>Upload</span>
+                            </Button>
+                            <Tippy offset={[12, 8]} content="Message" delay={[0, 200]} placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon className={cx('message-btn')} />
+                                </button>
+                            </Tippy>
+                            <Tippy offset={[12, 8]} content="Inbox" delay={[0, 200]} placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon width="3.2rem" height="3.2rem" className={cx('inbox-btn')} />
+                                </button>
+                            </Tippy>
+                        </div>
                     ) : (
                         <>
                             <Button text>Upload</Button>
@@ -138,10 +153,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
-                                src="https://scontent.fsgn13-2.fna.fbcdn.net/v/t39.30808-6/325608105_1148845239116999_3045381348987310331_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=UXsDwjfpL2QAX8Hyw6C&_nc_ht=scontent.fsgn13-2.fna&oh=00_AfDd_1E5q8Ap3e3uYpcGczSwrdDaQO34VyjGZbmWD6zVNQ&oe=642936B6"
+                            <Image
+                                src="fafasf"
                                 className={cx('user-avatar')}
                                 alt="Thao Nhi"
+                                fallback="https://yt3.ggpht.com/yti/AHXOFjVmqpByMabNep_gYIkGsOvJedmvpXGT41dtRoQ3=s88-c-k-c0x00ffffff-no-rj-mo"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
