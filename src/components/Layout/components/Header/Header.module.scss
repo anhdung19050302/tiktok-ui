@@ -12,7 +12,7 @@
 }
 .inner {
     height: 100%;
-    pading: 0 var(--default-layout-horizontal-space);
+    padding: 0 var(--default-layout-horizontal-space);
     width: var(--default-layout-width-content);
     display: flex;
     align-items: center;
@@ -20,77 +20,6 @@
 }
 
 .logo {
-}
-
-.search,
-.search-result {
-    width: 361px;
-}
-.search {
-    position: relative;
-    display: flex;
-
-    height: var(--search-height);
-    padding-left: 16px;
-    background-color: rgba(22, 24, 35, 0.06);
-    border-radius: var(--search-border-radius);
-
-    input {
-        flex: 1;
-        height: 100%;
-        color: var(--black);
-        font-size: 16px;
-        width: 292px;
-        background-color: transparent;
-        caret-color: var(--primary);
-    }
-
-    input:not(:placeholder-shown) ~ .search-btn {
-        color: rgba(22, 24, 35, 0.75);
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: 9px;
-        right: var(--search-button-width);
-        width: 1px;
-        background-color: rgba(22, 24, 35, 0.12);
-        height: calc(var(--search-height) - (var(--search-top-spacer) * 2));
-    }
-    &:focus-within {
-        border: 1.5px solid rgba(22, 24, 35, 0.2);
-    }
-}
-.search-title {
-    padding: 5px 12px;
-    color: rgba(22, 24, 35, 0.5);
-    font-size: 1.4rem;
-    font-weight: 600;
-}
-.clear-btn,
-.loading {
-    position: absolute;
-    right: calc(var(--search-button-width) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.34);
-}
-.search-btn {
-    width: var(--search-button-width);
-    height: 100%;
-    margin-left: 0;
-    border-bottom-right-radius: var(--search-border-radius);
-    border-top-right-radius: var(--search-border-radius);
-    font-size: 2rem;
-    color: rgba(22, 24, 35, 0.34);
-    &:hover {
-        cursor: pointer;
-        background-color: rgba(22, 24, 35, 0.03);
-    }
-    &:active {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
 }
 
 // Actions
@@ -107,8 +36,24 @@
     cursor: pointer;
 }
 .action-btn {
+    position: relative;
     background-color: transparent;
     margin-left: 16px;
+    cursor: pointer;
+}
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -7px;
+    padding: 0px 6px;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white);
+    font-family: 'ProximaNova', sans-serif;
+    background-color: var(--primary);
 }
 .actions-icon {
     display: flex;
